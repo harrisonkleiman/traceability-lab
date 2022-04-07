@@ -14,6 +14,8 @@ const port = process.env.port || 4005
 // Rollbar installation
 
 
+
+// endpoints
 app.get("/", (req, res) => {
   res.send("Hello World!")
 })
