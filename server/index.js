@@ -39,16 +39,17 @@ app.get("/", (req, res) => {
   res.send("Hello World!")
 })
 
-app.listen(port, () => {
-  console.log(`Server is rocking on port ${port}`)
-})
 
 // Add an endpoint and in the callback function, call a function that does not exist so you can test out Rollbar (hint: try using a try…catch block
-app.get("/error", (req, res) => {
+app.get("/err", (req, res) => {
   try {
     // throw new Error("This is a test error")
     res.send("Hello World... again!")
   } catch (err) {
     rollbar2.log(err)
   }
+})
+
+app.listen(port, () => {
+  console.log(`Server is rocking on port ${port}`)
 })
