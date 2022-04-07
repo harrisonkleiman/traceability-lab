@@ -34,12 +34,6 @@ const rollbar2 = new Rollbar({
   captureUnhandledRejections: true,
 })
 
-// endpoints
-app.get("/", (req, res) => {
-  res.send("Hello World!")
-})
-
-
 // Add an endpoint and in the callback function, call a function that does not exist so you can test out Rollbar (hint: try using a try…catch block
 app.get("/err", (req, res) => {
   try {
@@ -49,6 +43,14 @@ app.get("/err", (req, res) => {
     rollbar2.log(err)
   }
 })
+
+// endpoints
+app.get("/", (req, res) => {
+  res.send("Hello World!")
+})
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is rocking on port ${port}`)
