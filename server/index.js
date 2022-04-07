@@ -38,7 +38,7 @@ const rollbar2 = new Rollbar({
 app.get("/err", (req, res) => {
   try {
     // throw new Error("This is a test error")
-    res.send("Hello World... again!")
+    rollbar.log("Hello World... again!")
   } catch (err) {
     rollbar2.log(err)
   }
