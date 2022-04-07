@@ -34,13 +34,14 @@ const rollbar2 = new Rollbar({
   captureUnhandledRejections: true,
 })
 
+rollbar2.log("Hello world2!")
+
 // Add an endpoint and in the callback function, call a function that does not exist so you can test out Rollbar (hint: try using a try…catch block
-app.get("/err", (req, res) => {
+app.get("/test", (req, res) => {
   try {
-    // throw new Error("This is a test error")
-    rollbar.log("Hello World... again!")
-  } catch (err) {
-    rollbar2.log(err)
+    res.send("Hello world!")
+  } catch (e) {
+    rollbar.log(e)
   }
 })
 
